@@ -1,0 +1,21 @@
+# Ignore system and user-specific files
+.bash_history
+.lesshst
+.sudo_as_admin_successful
+
+# Ignore SSH and authentication files
+.ssh/
+.vscode-server/
+
+# Ignore Git-related files
+.git/
+
+# Ignore temporary and log files
+*.log
+*.swp
+*.swo
+
+# Ignore compiled and binary files
+*.o
+*.out
+*.class

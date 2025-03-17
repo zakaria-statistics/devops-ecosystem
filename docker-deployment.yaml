@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: docker-builder
+  namespace: cicd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: docker-builder
+  template:
+    metadata:
+      labels:
+        app: docker-builder
+    spec:
+      containers:
+        - name: docker
+          image: docker:19.03-dind
+          securityContext:
+            privileged: true
+          volumeMounts:
+            - name: docker-graph-storage
+              mountPath: /var/lib/docker
+      volumes:
+        - name: docker-graph-storage
+          emptyDir: {}
+
