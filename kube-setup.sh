@@ -40,7 +40,7 @@ fi
 mkdir -p "$HOME"/.kube
 sudo cp -i /etc/kubernetes/admin.conf "$HOME"/.kube/config
 sudo chown "$(id -u)":"$(id -g)" "$HOME"/.kube/config
-kubectl taint nodes node-role.kubernetes.io/control-plane:NoSchedule-
+kubectl taint nodes kube node-role.kubernetes.io/control-plane:NoSchedule-
 # Install Calico Network Plugin
 kubectl apply -f https://docs.projectcalico.org/manifests/calico.yaml
 
